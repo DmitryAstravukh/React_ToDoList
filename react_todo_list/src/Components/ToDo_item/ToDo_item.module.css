@@ -1,0 +1,17 @@
+.todo_item{
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  min-width: 100%;
+  max-height: 60px;
+  border: 1px solid rgb(142, 170, 252);
+  border-radius: 3px;
+  margin-bottom: 3px;
+  padding: 2px 2px;
+}
+
+.todo_item:last-child{
+  margin-bottom: 5px;
+}

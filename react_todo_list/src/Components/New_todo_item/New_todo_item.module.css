@@ -1,0 +1,18 @@
+.new_item_container{
+  width: 100%;
+}
+.new_item_form{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+
+.new_item_input{
+  margin-right: 5px;
+  width: 80%;
+  max-width: 100%;
+  font-size: 16px;
+  padding: 6px;
+  border: 1px solid silver;
+  border-radius: 3px;
+}

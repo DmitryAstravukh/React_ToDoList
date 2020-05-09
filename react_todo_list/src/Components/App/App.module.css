@@ -1,0 +1,15 @@
+.todo_container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  min-height: 200px;
+  width: 100%;
+  
+}
+
+.todo{
+  width: 500px;
+  max-width: 500px;
+  min-width: 300px;
+}
