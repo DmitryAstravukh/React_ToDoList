@@ -15,3 +15,20 @@
 .todo_item:last-child{
   margin-bottom: 5px;
 }
+
+.important{
+  border: 2px solid rgb(250, 236, 44);
+}
+
+.important span{
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.done{
+  border: 1px solid rgb(72, 173, 77);
+}
+
+.done span{
+  text-decoration: line-through;
+}

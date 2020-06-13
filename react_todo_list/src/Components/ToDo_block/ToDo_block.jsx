@@ -2,14 +2,19 @@ import React from 'react';
 import ToDoItem from './../ToDo_item';
 import s from './ToDo_block.module.css';
 
-export default class ToDoBlock extends React.Component {
-  render() {
-    return(
-      <div className={s.todoitems_container}>
-        <ToDoItem/>
-        <ToDoItem/>
-        <ToDoItem/>
-      </div>
-    )
-  }   
-}
+const ToDoBlock = ({items}) => {
+  
+  return(
+    <div className={s.todoitems_container}>
+      {items.map(({id, ...itemProps}) => {
+        return (
+          <ToDoItem key={id}
+                    itemProps={itemProps}/>
+        )
+      })}
+    </div>
+  )
+}  
+
+
+export default ToDoBlock;
