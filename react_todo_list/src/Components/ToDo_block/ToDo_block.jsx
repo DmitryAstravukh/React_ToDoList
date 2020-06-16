@@ -2,7 +2,7 @@ import React from 'react';
 import ToDoItem from './../ToDo_item';
 import s from './ToDo_block.module.css';
 
-const ToDoBlock = ({items, onToggleDone, onToggleImportant}) => { 
+const ToDoBlock = ({items, onToggleDone, onToggleImportant, onDelete}) => { 
   return(
     <div className={s.todoitems_container}>
       {items.map(({id, ...itemProps}) => {
@@ -10,7 +10,8 @@ const ToDoBlock = ({items, onToggleDone, onToggleImportant}) => {
           <ToDoItem key={id}
                     {...itemProps}
                     onToggleDone={() => onToggleDone(id)}
-                    onToggleImportant={() => onToggleImportant(id)}/>
+                    onToggleImportant={() => onToggleImportant(id)}
+                    onDelete={() => onDelete(id)}/>
         )
       })}
     </div>

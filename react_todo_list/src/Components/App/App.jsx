@@ -43,7 +43,7 @@ export default class App extends React.Component {
     });
   };
 
-  onDeleted = (id) => {
+  onDelete = (id) => {
     this.setState((state) => {
       let index = state.items.findIndex(item => item.id === id);    
       let items = [...state.items.slice(0, index),
@@ -83,7 +83,8 @@ export default class App extends React.Component {
           <SearchPanel search={this.onChangeSearchStr}/>
           <ToDoBlock items={visibleItems}
                      onToggleDone={this.onToggleDone}
-                     onToggleImportant={this.onToggleImportant}/>
+                     onToggleImportant={this.onToggleImportant}
+                     onDelete={this.onDelete}/>
           <NewToDoItem add={this.onItemAdded}/>
         </div>      
       </div>
