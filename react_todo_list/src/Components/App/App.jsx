@@ -16,7 +16,27 @@ export default class App extends React.Component {
     searchStr: ''
   };
 
-  onMakeDone = (id) => {
+  toggleProperty = (array, id, propName) => {
+    const index = array.findIndex(item => item.id === id);
+    const oldItem = array[index];
+    const value = !oldItem[propName];
+    //console.dir(`oldItem - ${oldItem}, value - ${value}`);
+    const item = {...array[index], [propName]: value};
+    return [
+      ...array.slice(0, index),
+      item,
+      ...array.slice(index + 1)
+    ];
+  };
+
+  onToggleDone = (id) => {
+    this.setState((state) => {
+      const items = this.toggleProperty(state.items, id, 'done');
+      return {items};
+    });
+  };
+
+  onDeleted = (id) => {
     this.setState((state) => {
       let index = state.items.findIndex(item => item.id === id);    
       let items = [...state.items.slice(0, index),
@@ -37,7 +57,7 @@ export default class App extends React.Component {
     this.setState({searchStr: str})
   }
 
-  searchItem = (items, text) => {
+  searchItems = (items, text) => {
     if(text.length === 0){
       return items
     }
@@ -49,12 +69,13 @@ export default class App extends React.Component {
 
   render() {
     const {items, searchStr} = this.state;
-    const visibleItems = this.searchItem(items, searchStr);
+    const visibleItems = this.searchItems(items, searchStr);
     return(
       <div className={s.todo_container}>
         <div className={s.todo}>
           <SearchPanel search={this.onChangeSearchStr}/>
-          <ToDoBlock items={visibleItems}/>
+          <ToDoBlock items={visibleItems}
+                     onToggleDone={this.onToggleDone}/>
           <NewToDoItem add={this.onItemAdded}/>
         </div>      
       </div>
