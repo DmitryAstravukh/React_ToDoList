@@ -36,6 +36,13 @@ export default class App extends React.Component {
     });
   };
 
+  onToggleImportant = (id) => {
+    this.setState((state) => {
+      const items = this.toggleProperty(state.items, id, 'important');
+      return {items};
+    });
+  };
+
   onDeleted = (id) => {
     this.setState((state) => {
       let index = state.items.findIndex(item => item.id === id);    
@@ -75,7 +82,8 @@ export default class App extends React.Component {
         <div className={s.todo}>
           <SearchPanel search={this.onChangeSearchStr}/>
           <ToDoBlock items={visibleItems}
-                     onToggleDone={this.onToggleDone}/>
+                     onToggleDone={this.onToggleDone}
+                     onToggleImportant={this.onToggleImportant}/>
           <NewToDoItem add={this.onItemAdded}/>
         </div>      
       </div>

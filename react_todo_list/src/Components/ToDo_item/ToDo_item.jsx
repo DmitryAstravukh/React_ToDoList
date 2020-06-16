@@ -2,7 +2,7 @@ import React from 'react';
 import s from './ToDo_item.module.css';
 
 
-const ToDoItem = ({text, important, done, onToggleDone}) => {
+const ToDoItem = ({text, important, done, onToggleDone, onToggleImportant}) => {
 
   let itemClassName = s.todo_item;
   if(important) itemClassName = [itemClassName, s.important].join(' ');
@@ -15,7 +15,9 @@ const ToDoItem = ({text, important, done, onToggleDone}) => {
         <button type="button" 
                 className="btn btn-success"
                 onClick={onToggleDone}>ok</button>
-        <button type="button" className="btn btn-warning">!</button>
+        <button type="button" 
+                className="btn btn-warning"
+                onClick={onToggleImportant}>!</button>
         <button type="button" className="btn btn-danger">del</button>
       </div>     
     </div>
