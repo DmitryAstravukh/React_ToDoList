@@ -1,5 +1,4 @@
 import React from 'react';
-import s from './Item_status_filter.module.css';
 
 export default class ItemStatusFilter extends React.Component{
   buttons = [

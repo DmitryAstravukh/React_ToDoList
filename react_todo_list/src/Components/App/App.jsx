@@ -44,12 +44,14 @@ export default class App extends React.Component {
   };
 
   onDelete = (id) => {
-    this.setState((state) => {
-      let index = state.items.findIndex(item => item.id === id);    
-      let items = [...state.items.slice(0, index),
-                   ...state.items.slice(index + 1)];
-      return {items};
-    })
+    if(window.confirm('Вы уверены?')){
+      this.setState((state) => {
+        let index = state.items.findIndex(item => item.id === id);    
+        let items = [...state.items.slice(0, index),
+                     ...state.items.slice(index + 1)];
+        return {items};
+      })
+    } 
   }
 
   onItemAdded = (text) => {
@@ -110,7 +112,7 @@ export default class App extends React.Component {
                      onToggleDone={this.onToggleDone}
                      onToggleImportant={this.onToggleImportant}
                      onDelete={this.onDelete}/>
-                     
+
           <NewToDoItem add={this.onItemAdded}/>
         </div>      
       </div>
