@@ -13,3 +13,8 @@
   max-width: 500px;
   min-width: 300px;
 }
+
+button:focus{
+  box-shadow: none !important;
+  outline: none !important;
+}

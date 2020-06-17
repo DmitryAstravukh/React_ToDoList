@@ -3,6 +3,7 @@ import ItemStatusFilter from './../Item_status_filter';
 import s from './Search_panel.module.css';
 
 export default class SearchPanel extends React.Component{
+
   state = {
     searchStr: ''
   }
@@ -21,7 +22,8 @@ export default class SearchPanel extends React.Component{
                placeholder="Найти"
                value={this.state.searchStr} 
                onChange={this.onSearchItems}/>
-        <ItemStatusFilter/>
+        <ItemStatusFilter filter={this.props.filter}
+                          onFilterChange={this.props.onFilterChange}/>
       </div>
     )
   }
